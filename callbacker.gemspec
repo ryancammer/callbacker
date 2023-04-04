@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'rake', '~> 13.0'
   spec.add_dependency 'workflow', '~> 3.0'
 
   spec.add_development_dependency 'bundler', '~> 2.4', '>= 2.4.10'

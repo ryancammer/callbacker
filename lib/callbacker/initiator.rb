@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Callbacker
   # The Initiator class is used to create a callback that can be attached to
   # a class that includes the Callbackable module.

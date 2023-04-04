@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'workflow'
 require 'callbacker'
 
@@ -46,7 +48,7 @@ module Callbacker
 
   class MockInitiator < Initiator
     def initiate
-      instance = self.args[:instance]
+      instance = args[:instance]
       instance.initiated = true
     end
   end

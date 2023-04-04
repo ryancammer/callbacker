@@ -166,11 +166,11 @@ module Callbacker
     def callbackable_events
       @callbackable_events ||=
         workflow_spec
-          .state_names
-          .collect { |state_name| workflow_spec.states[state_name].events }
-          .reject(&:nil?)
-          .collect(&:keys)
-          .flatten
+        .state_names
+        .collect { |state_name| workflow_spec.states[state_name].events }
+        .reject(&:nil?)
+        .collect(&:keys)
+        .flatten
     end
   end
 end

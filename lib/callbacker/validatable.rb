@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Callbacker
   # The Validatable module provides a mechanism to attach
   # validators to a class implementing Workflow or
@@ -11,6 +13,9 @@ module Callbacker
     end
   end
 
+  # The InstanceMethods module provides the execute_validators method
+  # which is used to run any validators that have been attached to the
+  # class.
   module InstanceMethods
     # The execute_validators method is used to run any validators that
     # have been attached to the class, which essentially enables
@@ -30,6 +35,9 @@ module Callbacker
     end
   end
 
+  # The ClassMethods module provides the attach_validator method
+  # which is how validators can be called when an event attempts to
+  # transition states.
   module ClassMethods
     # The attach_validator method is how validators can be called when
     # an event attempts to transition states.
@@ -83,11 +91,11 @@ module Callbacker
     def validatable_events
       @validatable_events ||=
         workflow_spec
-          .state_names
-          .collect { |state_name| workflow_spec.states[state_name].events }
-          .reject(&:nil?)
-          .collect(&:keys)
-          .flatten
+        .state_names
+        .collect { |state_name| workflow_spec.states[state_name].events }
+        .reject(&:nil?)
+        .collect(&:keys)
+        .flatten
     end
   end
 end
